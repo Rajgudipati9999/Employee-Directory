@@ -1,0 +1,295 @@
+/* ===== BASIC RESET ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f9fa;
+  color: #333;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+header {
+  margin-bottom: 20px;
+  /* flex row on wide, column on narrow */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+header h1 {
+  font-size: 24px;
+}
+.main-header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+/* SEARCH + FILTER */
+.search-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-section input[type="text"] {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-section button {
+  padding: 8px;
+  border: none;
+  background: #28a745;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ===== CONTROLS ROW ===== */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.controls select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-btn {
+  margin-left: auto;  /* push to the right */
+  padding: 8px 14px;
+  border: none;
+  background: #28a745;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ===== EMPLOYEE LIST (FLEX WRAP) ===== */
+#employee-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* CARD */
+.employee-card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  padding: 15px;
+
+  flex: 1 1 260px;   /* grow, shrink, base‑width */
+  max-width: 300px;  /* prevents huge cards */
+}
+
+.employee-card h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.employee-card p {
+  margin: 4px 0;
+}
+
+.emp-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.emp-actions button {
+  flex: 1;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-btn  { background: #007bff; color: #fff; }
+.delete-btn{ background: #dc3545; color: #fff; }
+
+/* ===== ADD/EDIT FORM ===== */
+#form-container {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 30px auto;
+}
+
+#form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#employee-form label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+.error { color:#e53935; font-size:12px; }
+#employee-form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form-actions button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+
+#save-btn   { background: #28a745; }
+#cancel-btn { background: #6c757d; }
+
+/* ===== PAGINATION (if used) ===== */
+.pagination {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 12px 0;
+  background: #343a40;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS (header layout only) ===== */
+@media (min-width: 600px) {
+  header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .search-section {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (min-width: 900px) {
+  .employee-card { flex: 1 1 280px; }
+}
+
+@media (min-width: 1200px) {
+  .employee-card { flex: 1 1 300px; }
+}
+
+/* ===== Filter Overlay & Pop‑up ===== */
+#filter-overlay {
+  position: fixed;
+  inset: 0;                           /* top:0 right:0 bottom:0 left:0 */
+  background: rgba(0, 0, 0, 0.45);    /* dimmed backdrop */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+#filter-popup {
+  width: 320px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+
+  /* Flex column for neat spacing */
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+#filter-popup h3 {
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
+  color: #333;
+}
+/* Form labels stacked with spacing */
+#filter-popup label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: #444;
+  gap: 6px;
+}
+
+#filter-popup input,
+#filter-popup select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Action buttons right‑aligned with gap */
+.filter-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.filter-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filter-actions button[type="submit"] {
+  background: #28a745;
+  color: #fff;
+}
+
+#filter-cancel {
+  background: #6c757d;
+  color: #fff;
+}
