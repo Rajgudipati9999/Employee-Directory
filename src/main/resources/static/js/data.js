@@ -24,5 +24,4 @@ const mockEmployees = [
     role: "Frontend Developer",
   },
 ];
-
 console.log("data.js loaded, employees count:", mockEmployees?.length);

@@ -1,4 +1,4 @@
-/* ===== DOM Shortcuts ===== */
+/* ==== DOM Shortcuts ==== */
 const container      = document.getElementById('employee-list-container');
 const addBtn         = document.getElementById('add-btn');
 const searchInput    = document.getElementById('search-input');
