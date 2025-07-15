@@ -4,7 +4,7 @@ This is a responsive and interactive Employee Directory web app built using **HT
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 employee/
 ├── src/
@@ -23,9 +23,9 @@ README.md
 
 ---
 
-## 🚀 How to Run the App
+## How to Run the App
 
-> ⚠️ The app doesn't use any backend or build tools.
+> The app doesn't use any backend or build tools.
 
 1. Make sure your project folder has the above structure.
 2. Open `index.ftlh` (inside `templates/`) with **Live Server** in VS Code.
@@ -33,28 +33,28 @@ README.md
 
 ---
 
-## 🧠 Features Implemented
+## Features Implemented
 
-- ✅ Responsive layout using Flexbox (mobile-friendly)
-- ✅ Add/Edit Employee with validation
-- ✅ Delete employee from UI
-- ✅ Search (live by name/email)
-- ✅ Filter by First Name, Department, Role (popup)
-- ✅ Sort by First Name or Department
-- ✅ Pagination with dynamic page size (10/25/50/100)
-- ✅ Dynamic rendering using vanilla JS
-- ✅ Form validation (required fields, valid email)
-- ✅ Clean structure & modular code with comments
+- Responsive layout using Flexbox (mobile-friendly)
+- Add/Edit Employee with validation
+- Delete employee from UI
+- Search (live by name/email)
+- Filter by First Name, Department, Role (popup)
+- Sort by First Name or Department
+- Pagination with dynamic page size (10/25/50/100)
+- Dynamic rendering using vanilla JS
+- Form validation (required fields, valid email)
+- Clean structure & modular code with comments
 
 ---
 
-<!-- ## 📸 Screenshots
+<!-- ##  Screenshots
 
 > _(Add screenshots manually if possible — of Dashboard, Form, Filter Popup, and Mobile View)_
 
 --- -->
 
-## 💬 Reflection
+## Reflection
 
 **Challenges Faced:**
 
@@ -71,7 +71,7 @@ README.md
 
 ---
 
-## 👨‍💻 Tech Stack
+## Tech Stack
 
 - HTML5
 - CSS3 (Flexbox)
@@ -80,7 +80,7 @@ README.md
 
 ---
 
-## 📧 Contact
+## Contact
 
 **Rahul Gudipati**  
 Frontend Developer  
