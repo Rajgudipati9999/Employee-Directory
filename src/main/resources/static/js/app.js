@@ -1,4 +1,3 @@
-/* ==== DOM Shortcuts ==== */
 const container      = document.getElementById('employee-list-container');
 const addBtn         = document.getElementById('add-btn');
 const searchInput    = document.getElementById('search-input');
@@ -8,7 +7,7 @@ const pageNumbersBox = document.getElementById('page-numbers');
 const prevBtn        = document.getElementById('prev-page');
 const nextBtn        = document.getElementById('next-page');
 
-/* ==== Form refs ==== */
+/*  Form */
 const formContainer = document.getElementById('form-container');
 const formTitle     = document.getElementById('form-title');
 const formElement   = document.getElementById('employee-form');
@@ -19,7 +18,6 @@ let currentPage   = 1;       // pagination
 let itemsPerPage  = 10;      // default (Show dropdown)
 let filteredList  = [];      // holds search/sort/filter result
 
-/* ===== Build one card ===== */
 const buildCard = (emp) => `
   <article class="employee-card">
     <h3>${emp.firstName} ${emp.lastName}</h3>
@@ -32,7 +30,7 @@ const buildCard = (emp) => `
     </div>
   </article>`;
 
-/* ===== RENDER LIST with pagination ===== */
+/* pagination */
 function renderEmployees() {
   // 1. calculate slice indexes
   const start = (currentPage - 1) * itemsPerPage;
@@ -55,7 +53,7 @@ function renderEmployees() {
   nextBtn.disabled = currentPage === totalPages;
 }
 
-/* ===== SEARCH / SORT / SHOW / FILTER combo ===== */
+/* SEARCH / SORT / SHOW / FILTER  */
 function applyFilters() {
   const text   = searchInput.value.toLowerCase();
   const sortBy = sortSelect.value;           // '', 'firstName', 'department'
@@ -79,14 +77,14 @@ function applyFilters() {
   renderEmployees();        // paginate & display
 }
 
-/* ===== Delete ===== */
+/* Delete */
 const deleteEmployee = (id) => {
   const idx = mockEmployees.findIndex((e) => e.id === id);
   if (idx !== -1) mockEmployees.splice(idx, 1);
   applyFilters();           // refresh list & pagination
 };
 
-/* ===== Form helpers (Add/Edit) – unchanged ===== */
+/*  Add/Edit */
 const openForm = (mode, emp = {}) => {
   editId = mode === 'edit' ? emp.id : null;
   formTitle.textContent = mode === 'edit' ? 'Edit Employee' : 'Add Employee';
@@ -118,25 +116,25 @@ const validate = () => {
   return ok;
 };
 
-/* ===== Initial Render ===== */
+/* Initial Render */
 window.addEventListener('DOMContentLoaded', () => {
   filteredList = [...mockEmployees];
   renderEmployees();
 });
 
-/* ===== Live search, sort, show ===== */
+/* Live search, sort, show */
 searchInput.addEventListener('input',   applyFilters);
 sortSelect .addEventListener('change',  applyFilters);
 showSelect .addEventListener('change',  applyFilters);
 
-/* ===== Pagination Prev/Next ===== */
+/* Pagination Prev/Next */
 prevBtn.addEventListener('click', () => { if (currentPage>1) { currentPage--; renderEmployees(); }});
 nextBtn.addEventListener('click', () => {
   const totalPages = Math.ceil(filteredList.length / itemsPerPage);
   if (currentPage < totalPages) { currentPage++; renderEmployees(); }
 });
 
-/* ===== Add button ===== */
+/* Add button */
 addBtn.addEventListener('click', () => openForm('add'));
 
 /* ===== Edit & Delete (delegation) ===== */
@@ -153,10 +151,10 @@ container.addEventListener('click', (e) => {
   }
 });
 
-/* ===== Cancel ===== */
+/* Cancel */
 $('cancel-btn').addEventListener('click', closeForm);
 
-/* ===== Save ===== */
+/* Save */
 formElement.addEventListener('submit', (e) => {
   e.preventDefault();
   if (!validate()) return;
@@ -176,7 +174,7 @@ formElement.addEventListener('submit', (e) => {
   applyFilters();
 });
 
-/* ===== Filter Pop‑up logic (unchanged) ===== */
+/* Filter Pop‑up logic (unchanged) */
 const filterBtn     = document.getElementById('filter-btn');
 const filterOverlay = document.getElementById('filter-overlay');
 const filterForm    = document.getElementById('filter-form');
